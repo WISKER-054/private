@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>JINNO</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background: #ffffff;
+            color: #000000;
+
+            font-family: Arial, sans-serif;
+        }
+
+        /* ==============================
+           FORM ĐĂNG NHẬP
+        ============================== */
+
+        .login {
+            width: 300px;
+        }
+
+        .logo {
+            text-align: center;
+
+            margin: 0 0 25px 0;
+
+            font-size: 26px;
+            font-weight: bold;
+
+            letter-spacing: 2px;
+        }
+
+        .login input {
+            width: 100%;
+
+            padding: 12px;
+
+            margin-bottom: 10px;
+
+            border: 1px solid #000000;
+            outline: none;
+
+            background: #ffffff;
+            color: #000000;
+
+            font-size: 15px;
+
+            border-radius: 0;
+        }
+
+        .login input:focus {
+            border-color: #000000;
+        }
+
+        .login button {
+            width: 100%;
+
+            padding: 12px;
+
+            border: 1px solid #000000;
+
+            background: #000000;
+            color: #ffffff;
+
+            font-size: 15px;
+
+            cursor: pointer;
+
+            border-radius: 0;
+
+            transition:
+                background 0.2s,
+                color 0.2s;
+        }
+
+        .login button:hover {
+            background: #ffffff;
+            color: #000000;
+        }
+
+        .error {
+            display: none;
+
+            margin-top: 10px;
+
+            text-align: center;
+
+            font-size: 13px;
+
+            color: #000000;
+        }
+
+
+        /* ==============================
+           KHUNG THÔNG TIN CÁ NHÂN
+        ============================== */
+
+        .profile {
+            display: none;
+
+            width: 350px;
+            height: 350px;
+
+            padding: 20px;
+
+            border: 1px solid #000000;
+
+            background: #ffffff;
+
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+
+        /* Tiêu đề */
+
+        .profile-title {
+            margin: 0 0 20px 0;
+
+            text-align: center;
+
+            font-size: 21px;
+            font-weight: bold;
+
+            letter-spacing: 1px;
+        }
+
+
+        /* Nội dung */
+
+        .profile-info {
+            width: 100%;
+
+            font-size: 15px;
+
+            line-height: 1.6;
+        }
+
+        .profile-info p {
+            margin: 0 0 12px 0;
+
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .profile-info strong {
+            font-weight: bold;
+        }
+
+
+        /* Đường phân cách */
+
+        .divider {
+            width: 100%;
+            height: 1px;
+
+            margin: 15px 0;
+
+            background: #000000;
+        }
+
+
+        /* ==============================
+           THANH CUỘN
+        ============================== */
+
+        .profile::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .profile::-webkit-scrollbar-track {
+            background: #ffffff;
+        }
+
+        .profile::-webkit-scrollbar-thumb {
+            background: #000000;
+        }
+
+        .profile::-webkit-scrollbar-thumb:hover {
+            background: #333333;
+        }
+
+
+        /* Firefox */
+
+        .profile {
+            scrollbar-width: thin;
+            scrollbar-color: #000000 #ffffff;
+        }
+
+
+        /* ==============================
+           RESPONSIVE
+        ============================== */
+
+        @media (max-width: 400px) {
+
+            .login {
+                width: calc(100% - 40px);
+            }
+
+            .profile {
+                width: 350px;
+                height: 350px;
+
+                max-width: calc(100vw - 20px);
+                max-height: calc(100vh - 20px);
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- ==================================
+         FORM ĐĂNG NHẬP
+    =================================== -->
+
+    <div class="login" id="loginBox">
+
+        <h2 class="logo">
+            RIÊNG TƯ
+        </h2>
+
+
+        <!-- Ô nhập mật khẩu -->
+
+        <input
+            type="password"
+            id="password"
+            placeholder="Nhập mật khẩu"
+            autocomplete="off"
+        >
+
+
+        <!-- Nút đăng nhập -->
+
+        <button
+            type="button"
+            onclick="login()"
+        >
+            MỞ KHÓA
+        </button>
+
+
+        <!-- Thông báo lỗi -->
+
+        <div
+            class="error"
+            id="error"
+        >
+            Mật khẩu không đúng!
+        </div>
+
+    </div>
+
+
+
+    <!-- ==================================
+         THÔNG TIN CÁ NHÂN
+    =================================== -->
+
+    <div
+        class="profile"
+        id="profile"
+    >
+
+        <h2 class="profile-title">
+            THÔNG TIN CÁ NHÂN
+        </h2>
+
+
+        <div class="profile-info">
+
+            <!-- ==================================
+                 THAY THÔNG TIN CỦA BẠN TẠI ĐÂY
+            =================================== -->
+            <p>
+                <strong>MB BANK:</strong>
+                <br> 0904043441
+                <br> HaO@!90802
+                <br> Pin OTP: 192008
+                <br> Pin ATM: 1908
+            </p>
+            
+            <p>
+                <strong>VCB BANK:</strong>
+                <br> 0904043441
+                <br> HaO@!90802
+                <br> Pin OTP: 190802
+            </p>
+
+            <p>
+                <strong>NAM Á BANK:</strong>
+                <br>
+            </p>
+            <p>
+                <strong>FACEBOOK:</strong>
+                <br> 0904043441
+                <br> o9o4o43441
+            </p>
+
+            <p>
+                <strong>TIKTOK:</strong>
+                <br> 0904043441
+                <br> O9o4o4344!
+            </p>
+
+            <p>
+                <strong>ZALO:</strong>
+                <br> 0904043441
+                <br> 0904043441dch
+            </p>
+
+            <p>
+                <strong>Email CTU:</strong>
+                <br> haob2012083@student.ctu.edu.vn
+                <br> 090404344!
+            </p>
+
+            <p>
+                <strong>HTQL CTU:</strong>
+                <br> b2012083
+                <br> RKyEb7Pw
+            </p>
+
+            <p>
+                <strong>Email cá nhân:</strong>
+                <br> dchao054@gmail.com
+                <br> 0904043441
+            </p>
+
+            <p>
+                <strong>VNEID:</strong>
+                <br> 0904043441
+                <br> o90404344!
+            </p>
+
+            <p>
+                <strong>CHAT GPT:</strong>
+                <br> haob2012083@student.ctu.edu.vn
+                <br> o8488889054hao
+            </p>
+
+            <p>
+                <strong>GITHUB:</strong>
+                <br> dchao054@gmail.com
+                <br> O9o4043441
+            </p>
+
+            <p>
+                <strong>MICROSOFT:</strong>
+                <br> dchao054@gmail.com
+                <br> 0904043441
+            </p>
+
+
+            <!-- ==================================
+                 GẠCH NGANG
+            =================================== -->
+            <div class="divider"></div>
+
+            <p>
+                <strong>Thông tin cá nhân:</strong>
+                Nội dung thông tin cá nhân của bạn được đặt
+                tại đây.
+            </p>
+
+            <p>
+                <strong>Sở thích:</strong>
+                Âm nhạc, phim ảnh, công nghệ và du lịch.
+            </p>
+
+            <p>
+                <strong>Kỹ năng:</strong>
+                Thiết kế website, lập trình và công nghệ
+                thông tin.
+            </p>
+
+            <p>
+                <strong>Ghi chú:</strong>
+                Bạn có thể thêm rất nhiều nội dung vào đây.
+                Khi nội dung dài hơn chiều cao 350px,
+                thanh cuộn sẽ tự động xuất hiện.
+            </p>
+
+            <p>
+                <strong>Thông tin bổ sung:</strong>
+                Bạn có thể tiếp tục thêm các trường thông tin
+                khác tùy theo nhu cầu.
+            </p>
+
+            <p>
+                <strong>Trạng thái:</strong>
+                Đang hoạt động.
+            </p>
+            <!-- ==================================
+                 KẾT THÚC THÔNG TIN
+            =================================== -->
+        </div>
+
+    </div>
+
+    <!-- ==================================
+         JAVASCRIPT
+    =================================== -->
+
+    <script>
+
+        function login() {
+
+            // Lấy mật khẩu người dùng nhập
+
+            const password =
+                document.getElementById("password").value;
+
+
+            // Lấy các thành phần trên trang
+
+            const loginBox =
+                document.getElementById("loginBox");
+
+            const profile =
+                document.getElementById("profile");
+
+            const error =
+                document.getElementById("error");
+
+
+            // Ẩn thông báo lỗi trước đó
+
+            error.style.display = "none";
+
+
+            // ==============================
+            // KIỂM TRA MẬT KHẨU
+            // ==============================
+
+            if (password === "0904043441") {
+
+
+                // Ẩn form đăng nhập
+
+                loginBox.style.display = "none";
+
+
+                // Hiện thông tin cá nhân
+
+                profile.style.display = "block";
+
+
+            } else {
+
+
+                // Mật khẩu sai
+
+                error.style.display = "block";
+
+
+                // Xóa mật khẩu đã nhập
+
+                document
+                    .getElementById("password")
+                    .value = "";
+
+
+                // Đưa con trỏ về ô nhập mật khẩu
+
+                document
+                    .getElementById("password")
+                    .focus();
+
+            }
+
+        }
+
+
+
+        // ==============================
+        // NHẤN ENTER ĐỂ ĐĂNG NHẬP
+        // ==============================
+
+        document
+            .getElementById("password")
+            .addEventListener(
+                "keydown",
+                function(event) {
+
+                    if (event.key === "Enter") {
+
+                        login();
+
+                    }
+
+                }
+            );
+
+    </script>
+
+
+</body>
+</html>
