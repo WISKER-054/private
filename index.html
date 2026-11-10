@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -225,7 +226,6 @@
                 max-height: calc(100vh - 20px);
             }
         }
-
     </style>
 </head>
 
@@ -246,30 +246,19 @@
 
         <!-- Ô nhập mật khẩu -->
 
-        <input
-            type="password"
-            id="password"
-            placeholder="Nhập mật khẩu"
-            autocomplete="off"
-        >
+        <input type="password" id="password" placeholder="Nhập mật khẩu" autocomplete="off">
 
 
         <!-- Nút đăng nhập -->
 
-        <button
-            type="button"
-            onclick="login()"
-        >
+        <button type="button" onclick="login()">
             MỞ KHÓA
         </button>
 
 
         <!-- Thông báo lỗi -->
 
-        <div
-            class="error"
-            id="error"
-        >
+        <div class="error" id="error">
             Mật khẩu không đúng!
         </div>
 
@@ -281,10 +270,7 @@
          THÔNG TIN CÁ NHÂN
     =================================== -->
 
-    <div
-        class="profile"
-        id="profile"
-    >
+    <div class="profile" id="profile">
 
         <h2 class="profile-title">
             THÔNG TIN CÁ NHÂN
@@ -309,7 +295,7 @@
                 <br> Pin OTP: 192008
                 <br> Pin ATM: 1908
             </p>
-            
+
             <p>
                 <strong>VCB BANK:</strong>
                 <br> 0904043441
@@ -382,6 +368,17 @@
                 <br> 0904043441
             </p>
 
+            <p>
+                <strong>PARROTO ENGLISH:</strong>
+                <br> haob2012083@student.ctu.edu.vn
+                <br>
+            </p>
+
+            <p>
+                <strong>EMAIL ĐIỆN THOẠI:</strong>
+                <br> haodc009@gmail.com
+                <br> O9o4043441
+            </p>
 
             <!-- ==================================
                  GẠCH NGANG
@@ -505,7 +502,7 @@
             .getElementById("password")
             .addEventListener(
                 "keydown",
-                function(event) {
+                function (event) {
 
                     if (event.key === "Enter") {
 
@@ -520,4 +517,5 @@
 
 
 </body>
+
 </html>
